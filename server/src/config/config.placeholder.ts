@@ -1,5 +1,5 @@
 const config = {
-  MONGO_URI: "dfsdfsdfsdfsdfs"
+  MONGO_URI: ""
 };
 
 export default config;
