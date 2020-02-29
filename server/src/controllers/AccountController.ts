@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import Users from "../models/Users";
 
 class AccountController {
   /**
@@ -13,8 +14,26 @@ class AccountController {
    * @route   POST /api/v1/account
    * @description This controller creates a new account
    */
-  static createUser = (req: Request, res: Response, next: NextFunction) => {
-    res.status(200).json({ message: "User was created successfully" });
+  static createUser = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
+    const { username, password } = req.body;
+    console.log("username", username);
+
+    try {
+      const exist = await Users.findOne({ username: username });
+      if (exist) {
+        throw new Error("User Exist");
+      }
+      const user = await Users.create({ username, password });
+      const token = user.getToken();
+
+      res.status(200).json({ message: "User was created successfully", token });
+    } catch (error) {
+      res.status(400).json({ error: error });
+    }
   };
 
   /**
