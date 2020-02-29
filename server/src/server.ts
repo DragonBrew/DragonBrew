@@ -8,7 +8,7 @@ const app = express();
 // Connect DB
 connectDB();
 
-// Body Parser
+// Body Parser!
 app.use(express.json());
 
 // Initialize Routes
