@@ -1,2 +1,3 @@
 # Ignore config
 server/src/config/config.ts
+server/node_modules
