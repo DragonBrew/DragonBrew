@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Dropdown } from 'semantic-ui-react';
-import '../styles/Header.css';
+import '../styles/Header.css'
 
 export class Header extends Component {
     state = {};
@@ -11,7 +11,7 @@ export class Header extends Component {
       const { activeItem } = this.state
   
       return (
-        <Menu className="">    
+        <Menu className="header-menu">    
             <Dropdown item text='Menu'>
             <Dropdown.Menu>
                 <Dropdown.Item>Create Character</Dropdown.Item>
