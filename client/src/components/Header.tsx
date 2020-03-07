@@ -1,14 +1,23 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Menu, Dropdown } from 'semantic-ui-react';
-import '../styles/Header.css'
+import "semantic-ui-css/semantic.min.css";
+import '../styles/Header.scss'
 
-export class Header extends Component {
-    state = {};
-    
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+export interface HeaderProps {
+  [key: string] : any
+}
+ 
+export interface HeaderState {
+  [key: string] : any
+}
+ 
+export class Header extends React.Component<HeaderProps, HeaderState> {
+  state = { }
+  
+  handleItemClick = (e:any, {name}:any) => this.setState({ activeItem: name })
   
     render() {
-      const { activeItem } = this.state
+      const { activeItem }:any = this.state
   
       return (
         <Menu className="header-menu">    
